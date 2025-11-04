@@ -8,10 +8,12 @@ import jakarta.persistence.*;
 public class Mascota {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
     private String nombre ;
+
 
     @Column(nullable = false)
     private String especie; //Perro, Gato, Loros, Iguana, Etc
@@ -22,12 +24,32 @@ public class Mascota {
     @Column(nullable = false)
     private Integer edad;
 
-    public Mascota(String raza, String nombre, String especie, Integer edad) {
+    //Agregar nuevo req.peso
+    @Column(nullable = false)
+    private Double peso;
+
+    // Constructor vacío
+    public Mascota(){
+    }
+
+    // Constructor con parámetros
+    public Mascota(String raza, String nombre, String especie, Integer edad, Double peso) {
         this.id = id;
         this.raza = raza;
         this.nombre = nombre;
         this.especie = especie;
         this.edad = edad;
+        this.peso = peso;
+    }
+
+    // Getters y Setters
+
+    public Double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Double peso) {
+        this.peso = peso;
     }
 
     public Integer getId() {

@@ -1,4 +1,4 @@
-package com.example.veterinaria.repository.service;
+package com.example.veterinaria.service;
 
 import com.example.veterinaria.model.Mascota;
 import com.example.veterinaria.repository.MascotaRepository;
@@ -11,6 +11,7 @@ public class MascotaService {
     private final MascotaRepository mascotaRepository;
 
     public MascotaService(MascotaRepository mascotaRepository){
+
         this.mascotaRepository = mascotaRepository;
     }
 
