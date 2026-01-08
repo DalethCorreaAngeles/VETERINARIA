@@ -1,0 +1,30 @@
+name: Revision 
+
+on:  
+  push: 
+    branches: [master]
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest   
+
+    permissions:
+      contents: write
+
+    steps: 
+       - name: Checkout repo 
+         uses: actions/checkout@v5
+       - name: Setup Java 
+         uses: actions/setup-java@v5
+         with: 
+           distribution: 'temurin'
+           java-version: '17'
+       - name: Build & Test with Maven 
+         run: ./mvnw clean verify
+       - name: Commit and Push changes 
+         uses: stefanzweifel/git-auto-commit-action@v7
+         with: 
+           commit_message: Revision
+           commit_user_name: Correa Angeles [Github Actions]
+           commit_user_email: DalethCorreaAgngeles@edu.pe
+           commit_author: Correa 
