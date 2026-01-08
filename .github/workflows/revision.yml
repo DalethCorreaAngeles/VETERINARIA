@@ -20,7 +20,7 @@ jobs:
            distribution: 'temurin'
            java-version: '17'
        - name: Build & Test with Maven 
-         run: ./mvnw clean verify
+         run: chmod +x mvnw
        - name: Commit and Push changes 
          uses: stefanzweifel/git-auto-commit-action@v7
          with: 
